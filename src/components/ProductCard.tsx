@@ -1,3 +1,5 @@
+import { MoneyFormatter } from "../util/MoneyFormatter";
+
 interface IProps {
     items: {
         id: number;
@@ -10,7 +12,7 @@ interface IProps {
 const ProductCard: React.FC<IProps> = (props) => {
     const renderProducts = props.items.map((item) => {
         return (
-            <div className="rounded" key={item.id}>
+            <div className="rounded shadow" key={item.id}>
                 <div>
                     <img
                         src={item.imgUrl}
@@ -21,7 +23,14 @@ const ProductCard: React.FC<IProps> = (props) => {
                         }}
                     ></img>
                 </div>
-                <div>hi</div>
+                <div className="p-3">
+                    <div className="flex justify-between items-center">
+                        <h1 className="text-xl font-semibold">{item.name}</h1>
+                        <h1 className="text-gray-500 ml-2 font-semibold">
+                            {MoneyFormatter(item.price)}
+                        </h1>
+                    </div>
+                </div>
             </div>
         );
     });
