@@ -6,7 +6,7 @@ import { getTotalItemsInCart } from "../slices/CartSlice";
 function Navbar() {
     const total = useSelector(getTotalItemsInCart);
     return (
-        <div className="flex justify-between items-center bg-white drop-shadow p-5">
+        <div className="sticky flex justify-between items-center bg-white drop-shadow p-5">
             <nav className="flex justify-between w-1/6 text-lg ">
                 <NavLink to={"/"}>Home</NavLink>
                 <NavLink to={"/store"}>Store</NavLink>
@@ -19,7 +19,6 @@ function Navbar() {
                         {total}
                     </div>
                 </button>
-                <div></div>
             </div>
         </div>
     );

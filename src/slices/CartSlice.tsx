@@ -47,11 +47,8 @@ export default cartSlice.reducer;
 export const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
     cartSlice.actions;
 
-export const getItemQuantity = (
-    state: RootState,
-    action: PayloadAction<number>
-) => {
-    state.cart.find((item) => item.id === action.payload)?.quantity || 0;
+export const getItemQuantity = (state: RootState, itemId: number) => {
+    return state.cart.find((item) => item.id === itemId)?.quantity || 0;
 };
 
 export const getTotalItemsInCart = (state: RootState): number => {
