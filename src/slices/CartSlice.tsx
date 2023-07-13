@@ -17,7 +17,7 @@ export const cartSlice = createSlice({
                 state.push({ id: action.payload, quantity: 1 });
                 return;
             }
-            state = state.map((item) =>
+            return state.map((item) =>
                 item.id === action.payload
                     ? { ...item, quantity: item.quantity + 1 }
                     : item
@@ -27,17 +27,16 @@ export const cartSlice = createSlice({
             if (
                 state.find((item) => item.id === action.payload)?.quantity == 1
             ) {
-                state.filter((item) => item.id !== action.payload);
-                return;
+                return state.filter((item) => item.id !== action.payload);
             }
-            state = state.map((item) =>
+            return state.map((item) =>
                 item.id === action.payload
                     ? { ...item, quantity: item.quantity - 1 }
                     : item
             );
         },
         removeFromCart: (state, action: PayloadAction<number>) => {
-            state.filter((item) => item.id !== action.payload);
+            return state.filter((item) => item.id !== action.payload);
         },
     },
 });
