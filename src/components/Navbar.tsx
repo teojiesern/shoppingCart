@@ -9,9 +9,15 @@ function Navbar() {
                 <NavLink to={"/store"}>Store</NavLink>
                 <NavLink to={"/about"}>About</NavLink>
             </nav>
-            <button className="text-3xl w-10 text-sky-400">
-                <AiOutlineShoppingCart />
-            </button>
+            <div>
+                <button className="text-3xl w-10 text-sky-400 relative w-12 h-12 ">
+                    <AiOutlineShoppingCart />
+                    <div className="absolute rounded-full bg-red-500 text-white w-6 h-6 text-base right-0 bottom-0">
+                        0
+                    </div>
+                </button>
+                <div></div>
+            </div>
         </div>
     );
 }
